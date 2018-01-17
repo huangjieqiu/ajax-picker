@@ -1,6 +1,6 @@
 # ajax-picker
-## [Demo](https://huangjieqiu.github.io/ajax-picker/demo/index.html)<br>
-【高仿京东APP地址选择插件】ajax-picker是一款数据通过异步获取（通常是AJAX）的级联选择器。不仅可用于地址选择联动，还可应付FAQ选择等等其他许多业务场景。如果你的数据不是异步获取的，那么市面上非常多的pickerView可能更适合你，当然你也可以选择这款。
+【高仿京东APP地址选择插件】ajax-picker是一款数据通过异步获取（通常是AJAX）的级联选择器。不仅可用于地址选择联动，还可应付FAQ选择等等其他许多业务场景。如果你的数据不是异步获取的，那么市面上非常多的pickerView可能更适合你，当然你也可以选择这款。<br>
+**[Demo](https://huangjieqiu.github.io/ajax-picker/demo/index.html)**
 ## 使用方法
 ### install
 ```javascripit
