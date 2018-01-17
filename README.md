@@ -4,12 +4,15 @@
 ####install
 ```javascripit
 npm install ajax-picker --save
+```
 ####import
 ```javascript
 import AjaxPicker from 'ajax-picker'
+```
 ####html
 ```html
 <div id="container"></div> //插件容器
+```
 ####javascript
 ```javascript
 var picker = new AjaxPicker({
@@ -69,5 +72,5 @@ var picker = new AjaxPicker({
     console.log(arr)
   }
 })
-
+```
 
