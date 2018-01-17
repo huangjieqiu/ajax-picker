@@ -1,0 +1,247 @@
+
+.ajaxPicker-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .7);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    z-index: -1;
+    opacity: 0;
+}
+
+.ajaxPicker-show {
+    z-index: 999 !important;
+    opacity: 1 !important;
+    height: 100% !important;
+    overflow: hidden !important;
+}
+
+.ajaxPicker-show .ajaxPicker-container {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.ajaxPicker-container {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    -webkit-transition: transform 0.3s;
+    -moz-transition: transform 0.3s;
+    -ms-transition: transform 0.3s;
+    -o-transition: transform 0.3s;
+    transition: transform 0.3s;
+    -webkit-transform: translate3d(0, 100%, 0);
+    -moz-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    -o-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    z-index: 1000;
+}
+
+.ajaxPicker-title {
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.ajaxPicker-title-text {
+    font-size: 15px;
+    color: #808080;
+}
+
+.ajaxPicker-close {
+    position: absolute;
+    top: 9px;
+    right: 17px;
+    height: 22px;
+    width: 22px;
+}
+
+.ajaxPicker-close::after, .ajaxPicker-close::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 50%;
+    background: #a9a9a9;
+    height: 2px;
+    width: 100%;
+}
+
+.ajaxPicker-close::before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.ajaxPicker-close::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.ajaxPicker-current {
+    position: relative;
+}
+
+.ajaxPicker-current::after {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-top: 1px solid #ddd;
+    width: 100%;
+    content: ' ';
+}
+
+.ajaxPicker-current ul {
+    font-size: 0;
+}
+
+.ajaxPicker-current-item {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 15px;
+    color: #666;
+    margin-left: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 80%;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.ajaxPicker-current-on {
+    color: #e4393c !important;
+}
+
+.ajaxPicker-current-line {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    background: #e4393c;
+    transition-property: all;
+}
+
+.ajaxPicker-content {
+    height: 100%;
+    transition-timing-function: ease-in-out;
+}
+
+.ajaxPicker-content-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.ajaxPicker-content-list {
+    position: relative;
+    float: left;
+    overflow: auto;
+    height: 300px;
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+    padding: 5px 20px;
+    box-sizing: border-box;
+}
+
+.ajaxPicker-content-item {
+    position: relative;
+    padding: 10px 0;
+    color: #333;
+    font-size: 14px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.ajaxPicker-content-on {
+    color: #e4393c !important;
+}
+
+.ajaxPicker-content-on:after {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5px;
+    content: ' ';
+    width: 20px;
+    height: 20px;
+    background-image: url("ok.png");
+    background-repeat: no-repeat;
+    background-size: 20px 80px;
+    background-position: 0 -20px;
+}
+
+.ajaxPicker-hide {
+    display: none !important;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5) {
+    .ajaxPicker-current::after {
+        -webkit-transform: scaleY(0.7);
+        transform: scaleY(0.7);
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+    .ajaxPicker-current::after {
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+    }
+}
+
+.alpha {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.alpha body {
+    height: 100%;
+    overflow: hidden;
+}
+
+/*laoding*/
+.ajaxPicker-loading-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ajaxPicker-loading {
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0) url("loading.gif") no-repeat center;
+    border-radius: 5px;
+}

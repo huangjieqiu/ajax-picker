@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="screen-orientation" content="portrait">
+    <title>address</title>
+</head>
+
+<style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+  .input-wrapper {
+    margin: 20px auto auto 20px;
+  }
+  .desc {
+    color: #2599d2;
+    font-size: 18px;
+    margin-bottom: 7px;
+  }
+
+  .address-input {
+    width: 200px;
+    height: 30px;
+    background: #fff;
+    text-indent: 3px;
+    color: #333;
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+</style>
+<body>
+<div class="input-wrapper">
+  <div class="desc">选择地址</div>
+  <input type="text" disabled class="address-input" id="address-input" placeholder="请选择地址">
+</div>
+
+<div id="container">
+</div>
+
+<script src="./address.js"></script>
+<script src="./build/ajax-picker.min.js"></script>
+
+<script>
+  var picker = new AjaxPicker({
+    title: '配送至',
+    tipText: ['省份', '城市', '区/县'],
+    input: 'address-input',
+    container: 'container',
+    renderFunc: [
+      function () {
+        picker.render(province)
+      } ,
+      function () {
+        picker.render(city)
+      },
+      function () {
+        picker.render(district)
+      }
+    ],
+    success: function (arr) {
+      console.log(arr)
+      var address = ''
+      for (var i = 0; i < arr.length; i++) {
+        address +=  ' ' + arr[i].value
+      }
+      document.getElementById('address-input').value = address.substring(1)
+    }
+  })
+</script>
+</body>
+</html>
