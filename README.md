@@ -22,7 +22,7 @@ var picker = new AjaxPicker({
   container: 'container', //选择器的容器的id
   renderFunc: [ //渲染函数数组，第一个函数对应第一个列表，以此类推，该数组中的函数的数量和列表的数量一致
     function () {
-      // 在这里写异步获取第一个列表数据的方法，通常是ajax
+      // 在这里写获取第一个列表数据的方法，通常是ajax
       // 在成功回调中加入下面这行代码，并将获取的数据传入:
           picker.render(your data)
       // 请确保你的获取到的数据是一个数组对象，并符合以下格式，每个对象至少拥有value(name)和id这两个key(将在用户选择完毕后返回),
