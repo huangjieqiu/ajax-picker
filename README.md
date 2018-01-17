@@ -12,7 +12,7 @@ import AjaxPicker from 'ajax-picker'
 ```
 ### 普通方式引入
 ```html
-<script src="./build/ajax-picker.min.js"></script>
+<script src="../build/ajax-picker.min.js"></script>
 ```
 ### html
 ```html
