@@ -44,7 +44,7 @@ var picker = new AjaxPicker({
     function () {
       // 在这里写获取第二个列表数据的方法
       // 你可以通过picker.result1获取用户在第一列表的选择结果
-      // piker.result1长这样：
+      // picker.result1长这样：
       // {
       //   value: 'XXX',
       //   id:'XXX',
@@ -56,7 +56,7 @@ var picker = new AjaxPicker({
     function () {
       // 在这里写获取第三个列表数据的方法
       // 你可以通过picker.result2获取用户在第二列表的选择结果
-      // piker.result2长这样：
+      // picker.result2长这样：
       // {
       //   value: 'XXX',
       //   id:'XXX',
