@@ -41,7 +41,7 @@ var transitionDuration = prefixStyle('transitionDuration')
 var transitionDelay = prefixStyle('transitionDelay')
 var DURATION = 300
 var HEIGHT = 40
-
+var WIN_W = window.innerWidth
 function AjaxPicker(config) {
   this.input = config.input
   this.container = config.container
@@ -96,12 +96,12 @@ AjaxPicker.prototype = {
 
     loop(0, this.renderFunc.length, function (i) {
       list = document.createElement('div')
-      list.style.width = window.innerWidth + 'px'
+      list.style.width = WIN_W + 'px'
       list.id = 'ajaxPicker-content-list-' + _this.container + '-' + i
       list.className = "ajaxPicker-content-list"
       list.setAttribute('index', i)
       list.innerHTML = '<div class="ajaxPicker-loading-wrapper"><div class="ajaxPicker-loading"></div></div>'
-      _this.content.style.width = (window.innerWidth * (i + 1)) + 'px'
+      _this.content.style.width = (WIN_W * (i + 1)) + 'px'
       _this.content.appendChild(list)
     })
 
@@ -114,9 +114,7 @@ AjaxPicker.prototype = {
     var wrapper = $id('ajaxPicker-wrapper-' + this.container)
     var closeBtn = $id('ajaxPicker-close-' + this.container)
     var input = $id(this.input)
-    var li, rect, level, index, value, id, siblings, me, next, renderFn, duration, curChild, conChild, left = 0,
-      minLeft = 0,
-      offsetWidth = 0, moveX = 0, moveY = 0, deltaX = 0, deltaY = 0, percent = 0, _this = this
+    var li, rect, level, index, value, id, siblings, me, next, renderFn, duration, curChild, conChild, left = 0, minLeft = 0, offsetWidth = 0, moveX = 0, moveY = 0, deltaX = 0, deltaY = 0, percent = 0, _this = this
 
     window.onresize = function () {
       var width = 0
@@ -171,8 +169,8 @@ AjaxPicker.prototype = {
       if (Math.abs(deltaY) > Math.abs(deltaX)) {
         return
       }
-      left = -(_this.curIdx * window.innerWidth)
-      minLeft = -(_this.renderIdx * window.innerWidth)
+      left = -(_this.curIdx * WIN_W)
+      minLeft = -(_this.renderIdx * WIN_W)
       offsetWidth = Math.min(0, Math.max(minLeft, left + deltaX))
 
       if (offsetWidth >= 0 || offsetWidth <= minLeft) {
@@ -185,19 +183,9 @@ AjaxPicker.prototype = {
       this.style[transitionDuration] = '0ms'
       this.style[transform] = 'translate3d(' + offsetWidth + 'px, 0, 0)'
 
-      percent = Math.abs(deltaX / window.innerWidth)
-      if (percent >= 0.1) {
-        if (deltaX < 0) {
-          _this.touch.targetIdx = _this.curIdx + 1
-          _this.touch.rect = _this.current.children[_this.curIdx + 1].getBoundingClientRect()
-        } else {
-          _this.touch.targetIdx = _this.curIdx - 1
-          _this.touch.rect = _this.current.children[_this.curIdx - 1].getBoundingClientRect()
-        }
-      } else {
-        _this.touch.targetIdx = _this.curIdx
-        _this.touch.rect = _this.current.children[_this.curIdx].getBoundingClientRect()
-      }
+      percent = Math.abs(deltaX / WIN_W)
+      _this.touch.targetIdx = (percent >= 0.1) ? (deltaX < 0) ? _this.curIdx + 1 : _this.curIdx - 1 : _this.touch.targetIdx = _this.curIdx
+      _this.touch.rect = _this.current.children[_this.touch.targetIdx].getBoundingClientRect()
     }, false)
 
     this.content.addEventListener('touchend', function () {
@@ -304,7 +292,7 @@ AjaxPicker.prototype = {
     this.curLine.style.bottom = rect.bottom + 'px'
     this.curLine.style[transitionDelay] = (delay || 0) + 'ms'
     this.content.style[transitionDuration] = DURATION + 'ms'
-    this.content.style[transform] = 'translate3d(' + -(idx * window.innerWidth) + 'px,' + '0, 0)'
+    this.content.style[transform] = 'translate3d(' + -(idx * WIN_W) + 'px,' + '0, 0)'
     this.curIdx = idx
   },
   render: function (arr) {
