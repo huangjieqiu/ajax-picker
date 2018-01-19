@@ -57,9 +57,11 @@
         picker.render(province)
       } ,
       function () {
+        console.log('用户在列表1选择了 ' + picker.result1)
         picker.render(city)
       },
       function () {
+        console.log('用户在列表2选择了 ' + picker.result2)
         picker.render(district)
       }
     ],
