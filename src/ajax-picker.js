@@ -184,7 +184,7 @@ AjaxPicker.prototype = {
       this.style[transform] = 'translate3d(' + offsetWidth + 'px, 0, 0)'
 
       percent = Math.abs(deltaX / WIN_W)
-      _this.touch.targetIdx = (percent >= 0.1) ? (deltaX < 0) ? _this.curIdx + 1 : _this.curIdx - 1 : _this.touch.targetIdx = _this.curIdx
+      _this.touch.targetIdx = (percent >= 0.1) ? (deltaX < 0) ? _this.curIdx + 1 : _this.curIdx - 1 : _this.curIdx
       _this.touch.rect = _this.current.children[_this.touch.targetIdx].getBoundingClientRect()
     }, false)
 
