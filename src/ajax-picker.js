@@ -171,7 +171,7 @@ AjaxPicker.prototype = {
 
       left = -(_this.curIdx * WIN_W)
       minLeft = -(_this.renderIdx * WIN_W)
-      offsetWidth = Math.min(0, Math.max(minLeft, left + deltaX)
+      offsetWidth = Math.min(0, Math.max(minLeft, left + deltaX))
       if (offsetWidth >=0 || offsetWidth <= minLeft) return
       if (!_this.touch.moved) _this.touch.moved = true
       e.preventDefault()
